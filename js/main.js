@@ -1,17 +1,15 @@
-const defaultCards = [
-  { title: "Portfolio Website", desc: "Show your personal work" },
-  { title: "Business Website", desc: "Company presentation" },
-  { title: "Landing Page", desc: "Marketing & ads" }
-];
+const grid = document.getElementById("cardGrid");
 
-// Load title
 const title = localStorage.getItem("siteTitle");
 if (title) {
   document.getElementById("siteTitle").innerText = title;
 }
 
-// Load cards
-const grid = document.getElementById("cardGrid");
+const defaultCards = [
+  { title: "Portfolio Website", desc: "Show your work" },
+  { title: "Business Website", desc: "Grow your business" }
+];
+
 const cards = JSON.parse(localStorage.getItem("cards")) || defaultCards;
 
 cards.forEach(card => {
