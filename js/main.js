@@ -1,14 +1,22 @@
-const reveals = document.querySelectorAll(".reveal");
+const defaultCards = [
+  { title: "Portfolio Website", desc: "Show your personal work" },
+  { title: "Business Website", desc: "Company presentation" },
+  { title: "Landing Page", desc: "Marketing & ads" }
+];
 
-function revealOnLoad() {
-  reveals.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if (top < window.innerHeight - 50) {
-      el.classList.add("active");
-    }
-  });
+// Load title
+const title = localStorage.getItem("siteTitle");
+if (title) {
+  document.getElementById("siteTitle").innerText = title;
 }
 
-window.addEventListener("scroll", revealOnLoad);
-window.addEventListener("load", revealOnLoad);
+// Load cards
+const grid = document.getElementById("cardGrid");
+const cards = JSON.parse(localStorage.getItem("cards")) || defaultCards;
 
+cards.forEach(card => {
+  const div = document.createElement("div");
+  div.className = "card";
+  div.innerHTML = `<h3>${card.title}</h3><p>${card.desc}</p>`;
+  grid.appendChild(div);
+});
