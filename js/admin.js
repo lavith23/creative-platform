@@ -1,25 +1,25 @@
-const ADMIN_USER = "admin";
-const ADMIN_PASS = "12345"; // change this
-
-function adminLogin() {
-  const u = document.getElementById("adminUser").value;
-  const p = document.getElementById("adminPass").value;
-
-  if (u === ADMIN_USER && p === ADMIN_PASS) {
-    localStorage.setItem("isAdmin", "true");
-    window.location.href = "dashboard.html";
-  } else {
-    alert("Wrong admin credentials");
-  }
+function saveTitle() {
+  const title = document.getElementById("titleInput").value;
+  localStorage.setItem("siteTitle", title);
+  alert("Title updated");
 }
 
-if (window.location.pathname.includes("dashboard")) {
-  if (localStorage.getItem("isAdmin") !== "true") {
-    window.location.href = "admin.html";
-  }
+function addCard() {
+  const title = document.getElementById("cardTitle").value;
+  const desc = document.getElementById("cardDesc").value;
+
+  let cards = JSON.parse(localStorage.getItem("cards")) || [];
+  cards.push({ title, desc });
+  localStorage.setItem("cards", JSON.stringify(cards));
+
+  alert("Card added");
 }
 
-function logout() {
-  localStorage.removeItem("isAdmin");
-  window.location.href = "index.html";
+function removeCard() {
+  let cards = JSON.parse(localStorage.getItem("cards")) || [];
+  cards.pop();
+  localStorage.setItem("cards", JSON.stringify(cards));
+
+  alert("Last card removed");
 }
+
