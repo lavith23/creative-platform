@@ -2,19 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Admin Login</title>
+  <title>Admin Dashboard</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="center">
+<body>
 
-<div class="card">
-  <h2>Admin Login</h2>
+<header>
+  <h1>Admin Dashboard</h1>
+</header>
 
-  <input type="text" id="adminUser" placeholder="Username">
-  <input type="password" id="adminPass" placeholder="Password">
+<section class="admin-box">
 
-  <button onclick="adminLogin()">Login</button>
-</div>
+  <h3>Change Website Title</h3>
+  <input id="titleInput" placeholder="New site title">
+  <button onclick="saveTitle()">Save Title</button>
+
+  <hr>
+
+  <h3>Add New Card</h3>
+  <input id="cardTitle" placeholder="Card title">
+  <input id="cardDesc" placeholder="Card description">
+  <button onclick="addCard()">Add Card</button>
+
+  <hr>
+
+  <h3>Remove Last Card</h3>
+  <button onclick="removeCard()">Remove</button>
+
+</section>
 
 <script src="js/admin.js"></script>
 </body>
