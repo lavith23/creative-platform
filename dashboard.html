@@ -7,16 +7,44 @@
 </head>
 <body>
 
-<header class="header">
-  <h1>Admin Dashboard</h1>
-  <button onclick="logout()">Logout</button>
-</header>
+<div class="dashboard">
 
-<section class="discover">
-  <h2>Admin Controls</h2>
-  <p>You can later add edit, add, remove controls here.</p>
-</section>
+  <aside class="sidebar">
+    <h2>Admin</h2>
+    <button onclick="logout()">Logout</button>
+  </aside>
 
-<script src="js/admin.js"></script>
+  <main class="content">
+    <h1>Admin Dashboard</h1>
+
+    <!-- TITLE -->
+    <section>
+      <h3>Change Website Title</h3>
+      <input id="siteTitleInput" placeholder="New website title">
+      <button onclick="updateTitle()">Update</button>
+    </section>
+
+    <hr>
+
+    <!-- ADD CARD -->
+    <section>
+      <h3>Add New Card</h3>
+      <input id="cardTitle" placeholder="Card title">
+      <input id="cardDesc" placeholder="Card description">
+      <button onclick="addCard()">Add Card</button>
+    </section>
+
+    <hr>
+
+    <!-- CARD LIST -->
+    <section>
+      <h3>Existing Cards</h3>
+      <div id="cardList"></div>
+    </section>
+
+  </main>
+</div>
+
+<script src="js/dashboard.js"></script>
 </body>
 </html>
