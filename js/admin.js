@@ -1,23 +1,15 @@
-function updateTitle() {
-  const title = document.getElementById("siteTitleInput").value;
-  localStorage.setItem("siteTitle", title);
-  alert("Title updated! Refresh homepage.");
-}
+function login() {
+  const user = document.getElementById("username").value;
+  const pass = document.getElementById("password").value;
 
-function addCard() {
-  const title = document.getElementById("cardTitle").value;
-  const desc = document.getElementById("cardDesc").value;
+  // CHANGE THESE (YOUR SECRET)
+  const adminUser = "admin";
+  const adminPass = "12345";
 
-  let cards = JSON.parse(localStorage.getItem("cards")) || [];
-  cards.push({ title, desc });
-
-  localStorage.setItem("cards", JSON.stringify(cards));
-  alert("Card added! Refresh homepage.");
-}
-
-function deleteCard() {
-  let cards = JSON.parse(localStorage.getItem("cards")) || [];
-  cards.pop();
-  localStorage.setItem("cards", JSON.stringify(cards));
-  alert("Last card deleted! Refresh homepage.");
+  if (user === adminUser && pass === adminPass) {
+    localStorage.setItem("isAdmin", "true");
+    window.location.href = "dashboard.html";
+  } else {
+    document.getElementById("error").innerText = "Wrong username or password";
+  }
 }
