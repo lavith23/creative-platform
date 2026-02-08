@@ -8,7 +8,7 @@
 <body>
 
   <header class="hero">
-    <h1 id="heroTitle">Creative Platform</h1>
+    <h1 id="siteTitle">Creative Platform</h1>
     <p>Discover. Explore. Build.</p>
   </header>
 
@@ -17,5 +17,26 @@
   </section>
 
   <script src="js/main.js"></script>
+  
+  <div id="cardsContainer"></div>
+  <script>
+  // TITLE
+  const savedTitle = localStorage.getItem("siteTitle");
+  if (savedTitle) {
+    document.getElementById("siteTitle").innerText = savedTitle;
+  }
+
+  // CARDS
+  const cards = JSON.parse(localStorage.getItem("cards")) || [];
+  const container = document.getElementById("cardsContainer");
+
+  cards.forEach(card => {
+    const div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `<h3>${card.title}</h3><p>${card.desc}</p>`;
+    container.appendChild(div);
+  });
+</script>
+
 </body>
 </html>
