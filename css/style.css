@@ -103,6 +103,40 @@ body {
 .login-box button:hover {
   background: #f1f1f1;
 }
+.dashboard {
+  display: flex;
+}
+
+.sidebar {
+  width: 220px;
+  background: #c0392b;
+  color: white;
+  padding: 20px;
+}
+
+.sidebar button {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.content {
+  padding: 30px;
+  width: 100%;
+}
+
+.admin-card {
+  background: #f6efe6;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 10px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  margin: 15px 0;
+}
 
 #error {
   margin-top: 10px;
